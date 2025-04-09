@@ -1,9 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
+@layer base {
+  body {
+    font-family: "Roboto", sans-serif;
+    @apply bg-background text-foreground;
+  }
+
+  pre {
+    @apply whitespace-pre-wrap wrap-break-word;
+  }
+}
 
 @layer utilities {
   .font-roboto {
     font-family: "Roboto", sans-serif;
   }
+}
+
+:root {
+  --text: #100507;
+  --background: #fdf8f9;
+  --foreground: #100507;
+  --primary: #c74661;
+  --primary-foreground: #fdf8f9;
+  --secondary: #8dddca;
+  --secondary-foreground: #100507;
+  --accent: #7193d5;
+  --accent-foreground: #100507;
 }
