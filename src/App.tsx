@@ -1,3 +1,9 @@
+import Canvas from "@/components/canvas/Canvas";
+
 export default function App() {
-  return <h1>Fufufafa</h1>;
+  return (
+    <>
+      <Canvas />
+    </>
+  );
 }
