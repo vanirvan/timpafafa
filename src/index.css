@@ -19,7 +19,7 @@
   }
 
   pre {
-    @apply whitespace-pre-wrap wrap-break-word;
+    @apply wrap-break-word whitespace-pre-wrap;
   }
 }
 

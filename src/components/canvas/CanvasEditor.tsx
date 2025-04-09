@@ -1,10 +1,11 @@
-import {
-  useResetValue,
-  useCanvasStore,
-} from "@/lib/stores/canvas-editor-store";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+
+import {
+  useCanvasStore,
+  useResetValue,
+} from "@/lib/stores/canvas-editor-store";
 
 export default function CanvasEditor() {
   const canvasValue = useCanvasStore((state) => state);
@@ -64,7 +65,7 @@ export default function CanvasEditor() {
       <div className="flex flex-col gap-0.5">
         <button
           onClick={useResetValue}
-          className="rounded-md mt-auto w-full bg-primary text-primary-foreground px-4 py-2 cursor-pointer hover:bg-primary/80 transition-colors"
+          className="bg-primary text-primary-foreground hover:bg-primary/80 mt-auto w-full cursor-pointer rounded-md px-4 py-2 transition-colors"
         >
           Reset
         </button>

@@ -3,8 +3,8 @@ import CanvasResult from "@/components/canvas/CanvasResult";
 
 export default function Canvas() {
   return (
-    <section className="relative w-full my-12">
-      <div className="relative w-full px-4 flex flex-col gap-6 max-w-xl mx-auto">
+    <section className="relative my-12 w-full">
+      <div className="relative mx-auto flex w-full max-w-xl flex-col gap-6 px-4">
         <CanvasEditor />
         <CanvasResult />
       </div>
