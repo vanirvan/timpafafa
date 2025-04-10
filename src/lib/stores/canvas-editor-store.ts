@@ -7,6 +7,7 @@ type CanvasValue = {
   name: string;
   dateTime: string;
   content: string;
+  voteCount: number;
   fileName: string;
 };
 
@@ -15,6 +16,7 @@ type CanvasStore = CanvasValue & {
   setName: (name: string) => void;
   setDateTime: (dateTime: string) => void;
   setContent: (content: string) => void;
+  setVoteCount: (content: number) => void;
   setFileName: (content: string) => void;
 };
 
@@ -34,6 +36,7 @@ King JS tetep nomor satu walaupun satu library rilis setiap jamnya.
 
 Ding ngoding ding ngoding ding ngocok standing.`,
   fileName: "fufufafa.jpg",
+  voteCount: 0,
 };
 
 export const useCanvasStore = create<CanvasStore>()((set) => ({
@@ -41,11 +44,13 @@ export const useCanvasStore = create<CanvasStore>()((set) => ({
   name: defaultCanvasValue.name,
   dateTime: defaultCanvasValue.dateTime,
   content: defaultCanvasValue.content,
+  voteCount: defaultCanvasValue.voteCount,
   setImage: (image: string) => set({ image }),
   setName: (name: string) => set({ name }),
   setDateTime: (dateTime: string) =>
     set({ dateTime: formatDateInput(dateTime) }),
   setContent: (content: string) => set({ content }),
+  setVoteCount: (voteCount: number) => set({ voteCount }),
 
   fileName: "fufufafa.jpg",
   setFileName: (fileName: string) => set({ fileName }),

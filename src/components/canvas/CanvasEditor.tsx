@@ -44,6 +44,15 @@ export default function CanvasEditor() {
           className="w-full"
         />
       </div>
+      <div className="flex flex-col gap-0.5">
+        <Label>Vote Count</Label>
+        <Input
+          type="number"
+          value={canvasValue.voteCount}
+          placeholder="Enter vote count (can be negative)"
+          onChange={(e) => canvasValue.setVoteCount(parseInt(e.target.value))}
+        />
+      </div>
       <div className="flex flex-col gap-0.5 md:col-span-2">
         <Label>Custom Comment</Label>
         <Textarea
