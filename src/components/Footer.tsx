@@ -6,7 +6,7 @@ export default function Footer() {
       id="footer"
       className="bg-primary text-primary-foreground relative w-full py-4"
     >
-      <div className="mx-auto max-w-xl px-4">
+      <div className="mx-auto max-w-lg px-4">
         <a
           href="https://github.com/vanirvan/timpafafa"
           className="group flex cursor-pointer justify-end gap-2"

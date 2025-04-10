@@ -16,7 +16,7 @@ export default function CanvasEditor() {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
       <div className="flex flex-col gap-0.5">
         <Label>Custom Image</Label>
         <Input
@@ -44,22 +44,13 @@ export default function CanvasEditor() {
           className="w-full"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
+      <div className="flex flex-col gap-0.5 md:col-span-2">
         <Label>Custom Comment</Label>
         <Textarea
           placeholder="Your comment"
           value={canvasValue.content}
           onChange={(e) => canvasValue.setContent(e.target.value)}
-        />
-      </div>
-      <div className="flex flex-col gap-0.5">
-        <Label>Save File Name</Label>
-        <Input
-          type="text"
-          value={canvasValue.fileName}
-          placeholder="Enter custom name"
-          onChange={(e) => canvasValue.setFileName(e.target.value)}
-          className="w-full"
+          className="min-h-48"
         />
       </div>
       <div className="flex flex-col gap-0.5">
@@ -73,38 +64,3 @@ export default function CanvasEditor() {
     </div>
   );
 }
-
-// export default function CanvasEditor() {
-//   const canvasEditor = useCanvasStore((state) => state);
-
-//   return (
-//     <div className="grid grid-cols-2 gap-6">
-//       <input
-//         type="file"
-//         accept="image/jpg, image/jpeg, image/png"
-//         onChange={(e) => changeImageHandler(e)}
-//         className="border-2"
-//       />
-//       <input
-//         type="text"
-//         value={canvasEditor.name}
-//         onChange={(e) => canvasEditor.setName(e.target.value)}
-//         placeholder="Name"
-//         className="border-2"
-//       />
-//       <input
-//         type="datetime-local"
-//         value={canvasEditor.dateTime}
-//         onChange={(e) => canvasEditor.setDateTime(e.target.value)}
-//         placeholder="Date Time"
-//         className="border-2"
-//       />
-//       <textarea
-//         value={canvasEditor.content}
-//         onChange={(e) => canvasEditor.setContent(e.target.value)}
-//         placeholder="Content"
-//         className="border-2"
-//       />
-//     </div>
-//   );
-// }

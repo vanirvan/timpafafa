@@ -1,7 +1,7 @@
 export default function HeroSection() {
   return (
     <section id="hero" className="relative w-full py-12">
-      <div className="relative mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4">
+      <div className="relative mx-auto flex w-full max-w-lg flex-col items-center justify-center gap-6 px-4">
         <img
           src={"/fufufafa_icon.jpg"}
           alt="fufufafa image"
