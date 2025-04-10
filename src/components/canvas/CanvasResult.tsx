@@ -14,7 +14,7 @@ import { formatDate } from "@/lib/format-date";
 import { useCanvasStore } from "@/lib/stores/canvas-editor-store";
 
 export default function CanvasResult() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
   const canvasValue = useCanvasStore((state) => state);
 
   const handleDownload = async () => {
@@ -44,8 +44,8 @@ export default function CanvasResult() {
               </div>
             </div>
 
-            <div className="flex items-center space-x-2 text-gray-500">
-              <span className="text-xs">
+            <div className="flex items-center space-x-2 text-[#6b7280]">
+              <span className="h-3 text-xs">
                 #{Math.floor(Math.random() * 1000)}
               </span>
               <FaLightDotsVertical className="size-4 fill-current" />
@@ -54,7 +54,7 @@ export default function CanvasResult() {
           <pre className="font-roboto w-full py-2 break-words text-[#5c5c5c]">
             {canvasValue.content}
           </pre>
-          <div className="mt-1 flex items-center justify-between text-sm text-gray-500">
+          <div className="mt-1 flex items-center justify-between text-sm text-[#6b7280]">
             <div className="flex items-center space-x-2">
               <FaLightUp className="size-4 fill-current" />
               <span>{canvasValue.voteCount}</span>
