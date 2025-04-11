@@ -21,6 +21,10 @@
   pre {
     @apply wrap-break-word whitespace-pre-wrap;
   }
+
+  img {
+    @apply inline-block;
+  }
 }
 
 @layer utilities {
