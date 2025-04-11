@@ -18,7 +18,32 @@ export default function CanvasResult() {
   const canvasValue = useCanvasStore((state) => state);
 
   const handleDownload = async () => {
-    const canvas = await html2canvas(canvasRef.current!);
+    const canvas = await html2canvas(canvasRef.current!, {
+      onclone: (clonedDocument) => {
+        const needAlignElements =
+          clonedDocument.querySelectorAll(".canvas-align-fix");
+        needAlignElements.forEach((el) => {
+          const parentElement = el.closest(".flex") || el.parentElement;
+          const siblings = parentElement
+            ? Array.from(parentElement.children)
+            : [];
+          let maxHeight = 0;
+          siblings.forEach((sibling) => {
+            const siblingHeight = sibling.getBoundingClientRect().height;
+            if (siblingHeight > maxHeight) {
+              maxHeight = siblingHeight;
+            }
+          });
+          const elementHeight = el.getBoundingClientRect().height;
+          const heightDiff = maxHeight - elementHeight;
+          const baseCorrection = maxHeight * 0.85;
+          const additionalCorrection = heightDiff * 0.15;
+          (el as HTMLElement).style.marginTop =
+            `${-(baseCorrection + additionalCorrection)}px`;
+        });
+      },
+    });
+
     const imgData = canvas.toDataURL("image/jpg");
 
     const link = document.createElement("a");
@@ -34,7 +59,7 @@ export default function CanvasResult() {
           <div className="flex items-center justify-between">
             <div className="flex w-full items-center gap-2">
               <img src={canvasValue.image} className="size-7 rounded-full" />
-              <div className="flex flex-col gap-0.5 text-xs">
+              <div className="canvas-align-fix flex flex-col gap-0.5 text-xs">
                 <h1 className="font-medium text-[#5c5c5c]">
                   {canvasValue.name}
                 </h1>
@@ -45,7 +70,7 @@ export default function CanvasResult() {
             </div>
 
             <div className="flex items-center space-x-2 text-[#6b7280]">
-              <span className="h-3 text-xs">
+              <span className="canvas-align-fix h-3 text-xs">
                 #{Math.floor(Math.random() * 1000)}
               </span>
               <FaLightDotsVertical className="size-4 fill-current" />
@@ -57,7 +82,7 @@ export default function CanvasResult() {
           <div className="mt-1 flex items-center justify-between text-sm text-[#6b7280]">
             <div className="flex items-center space-x-2">
               <FaLightUp className="size-4 fill-current" />
-              <span>{canvasValue.voteCount}</span>
+              <span className="canvas-align-fix">{canvasValue.voteCount}</span>
               <FaLightDown className="size-4 fill-current" />
               <FaLightShareNode className="size-4 fill-current" />
             </div>
